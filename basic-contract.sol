@@ -1,10 +1,10 @@
 pragma solidity ^0.5.1;
 
 contract BasicContract {
-    string value;
+    string public value;
 
-    function get() public view returns(string memory) {
-        return value;
+    constructor() public {
+        value = "Hello, World!";
     }
 
     function set(string memory _value) public {

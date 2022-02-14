@@ -10,6 +10,10 @@ contract EthersEventsContract {
         wallet = _wallet;
     }
 
+    function() external payable {
+        buyToken();
+    }
+
     function buyToken() public payable {
         // buy token
         balances[msg.sender] += 1;

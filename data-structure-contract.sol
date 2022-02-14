@@ -2,7 +2,8 @@ pragma solidity ^0.5.1;
 
 contract DataStructureContract {
 
-    Person[] public person;
+    mapping(uint256 => Person) public person;
+    uint256 public peopleCount = 0;
 
     struct Person {
         string _firstname;
@@ -10,6 +11,7 @@ contract DataStructureContract {
     }
 
     function addPerson(string memory _firstname, string memory _lastname) public {
-        person.push(Person(_firstname, _lastname));
+        person[peopleCount] = Person(_firstname, _lastname);
+        peopleCount++;
     }
 }

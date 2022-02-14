@@ -6,6 +6,11 @@ contract EthersEventsContract {
 
     address payable wallet;
 
+    event Purchase(
+        address indexed _buyer,
+        uint256 _amount
+    );
+
     constructor(address payable _wallet) public {
         wallet = _wallet;
     }
@@ -20,5 +25,8 @@ contract EthersEventsContract {
 
         // send ethers to wallet
         wallet.transfer(msg.value);
+
+        // trigger an event
+        emit Purchase(msg.sender, 1);
     }
 }

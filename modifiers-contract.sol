@@ -21,6 +21,13 @@ contract ModifiersContract {
         _;
     }
 
+    // uint256 openingTime = 2;
+
+    // modifier onlyWhileOpen() {
+    //     require(block.timestamp >= openingTime);
+    //     _;
+    // }
+
     function addPerson(string memory _firstname, string memory _lastname) public onlyOwner {
         person[peopleCount] = Person(_firstname, _lastname);
         incrementCount();

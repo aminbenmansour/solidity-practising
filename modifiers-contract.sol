@@ -23,6 +23,10 @@ contract ModifiersContract {
 
     function addPerson(string memory _firstname, string memory _lastname) public onlyOwner {
         person[peopleCount] = Person(_firstname, _lastname);
+        incrementCount();
+    }
+
+    function incrementCount() internal {
         peopleCount++;
     }
 }

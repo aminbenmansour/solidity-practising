@@ -2,18 +2,14 @@ pragma solidity ^0.5.1;
 
 contract DataStructureContract {
 
-    enum State {Waiting, Ready, Active}
-    State public state;
+    Person[] public person;
 
-    constructor() public {
-        state = State.Waiting;
+    struct Person {
+        string _firstname;
+        string _lastname;
     }
 
-    function activate() public {
-        state = State.Active;
-    }
-
-    function isActive() public view returns(bool) {
-        return state == State.Active;
+    function addPerson(string memory _firstname, string memory _lastname) public {
+        person.push(Person(_firstname, _lastname));
     }
 }
